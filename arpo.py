@@ -28,7 +28,11 @@ class Arpo:
         print('-'*30)
 
     def run(self):
-        pass
+        self.poison_thread = Process(target=self.poison)
+        self.poison_thread.start()
+
+        self.sniff_thread = Process(target=self.sniff)
+        self.sniff_thread.start()
 
     def poison(self):
         pass
