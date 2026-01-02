@@ -37,3 +37,15 @@ python arpo.py [VICTIM_IP] [GATEWAY_IP] [NIC]
 python arpo.py 192.168.204.129 192.168.204.2 eth0 			# An Instance. 
 ```
 
+## 4. While the script is capturing 100 packets, let's output content of the ARP-table on the victim machine:
+```bash
+arp -a  
+```
+If success, these MAC-addresses have to have the same values, like this: 
+#### OUTPUT:
+```bash
+kali.attlocal.net (192.168.1.203) at a4:5e:60:ee:17:5d on en0 ifscope 				# Our kali machine
+dsldevice.attlocal.net (192.168.1.254) at a4:5e:60:ee:17:5d on en0 ifscope          # The gateway
+```
+
+We're good, if the gateway has the same MAC-address as the attacker machine does. 
