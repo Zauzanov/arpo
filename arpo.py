@@ -5,7 +5,7 @@ import os
 import sys
 import time 
 
-def get_mac(targetip):
+def get_mac(targetip):                                                      # Defines a func to get the speficied PC's MAC-address.
     pass
 
 class Arpo:
@@ -15,13 +15,13 @@ class Arpo:
     def run(self):
         pass
 
-    def poison(self):
+    def poison(self):                                                       # To replace network parameters.
         pass
 
-    def sniff(self, count=200):
+    def sniff(self, count=200):                                             # To extract network parameters.
         pass
 
-    def restore(self):
+    def restore(self):                                                      # To restore network parameters.
         pass
 
 if __name__ == '__main__':
