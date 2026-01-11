@@ -82,19 +82,19 @@ arp -a
 ```
 
 On Mac: If success, these MAC-addresses have to have the same values, like this: 
-#### OUTPUT:
+#### MacOS OUTPUT:
 ```bash
 kali.attlocal.net (192.168.1.203) at a4:5e:60:ee:17:5d on en0 ifscope 				# Our kali machine
 dsldevice.attlocal.net (192.168.1.254) at a4:5e:60:ee:17:5d on en0 ifscope          # The gateway
 ```
-
 We're good, if the gateway has the same MAC-address as the attacker machine does. 
 
+<br>
 In my case, let's verify the attack on Meta2 machine:
 ```bash
 arp -a
 ```
 
-Meta2 machine after the attack:
-![meta2_after](https://)
+Meta2 machine after the attack:<br>
+![meta2_after](https://) <br>
 We see the IP and MAC addresses from our Kali-machine instead of the original ones! Success!  
