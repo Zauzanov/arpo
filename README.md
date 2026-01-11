@@ -19,3 +19,11 @@ dsldevice.attlocal.net (192.168.1.254) at 20:e5:64:c0:76:d0 on en0 ifscope 			# 
 These values are going to be useful, as we will be able to see ARP-cache during the attack and see how the gateway's registered MAC-address are going to be changed.
 
 Knowing gateway's and target's adresses, we can proceed.
+
+## On Mac: If success, these MAC-addresses have to have the same values, like this: 
+#### MacOS OUTPUT:
+```bash
+kali.attlocal.net (192.168.1.203) at a4:5e:60:ee:17:5d on en0 ifscope 				# Our kali machine
+dsldevice.attlocal.net (192.168.1.254) at a4:5e:60:ee:17:5d on en0 ifscope          # The gateway
+```
+We're good, if the gateway has the same MAC-address as the attacker machine does. 
