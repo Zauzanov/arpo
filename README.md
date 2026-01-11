@@ -19,18 +19,27 @@ These values are going to be useful, as we will be able to see ARP-cache during 
 
 Knowing gateway's and target's adresses, we can proceed. 
 
-## 2. Secondly, we need to inform the local system that we are going to send packets to IP addresses belonging to both the gateway and the victim computer:
+## 0. Here we see that the attacker and the victim share the same gateway:
+### Metasploitable2 machine before:
+![meta2_before](https://)
+### Kali machine before: 
+![kali_before](https://raw.githubusercontent.com/Zauzanov/)
 
-### For Linux:
+
+## 2. Secondly, we need to inform the local system(Kali) that we are going to send packets to IP addresses belonging to both the gateway and the victim computer:
+
+### For Linux(Kali):
 ```bash
 echo 1 > /proc/sys/net/ipv4/ip_forward
+# or
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 ```
 
 ### For macOS:
 ```bash
 sudo sysctl -w net.inet.ip.forwarding=1 
 ```
-## 3. So, after configuring IP address forwarding, let's run our script and check the ARP cache of the victim computer:
+## 3. So, after configuring IP address forwarding, let's run our script(on Kali) and check the ARP cache of the victim computer:
 
 ```bash
 python arpo.py [VICTIM_IP] [GATEWAY_IP] [NIC]
