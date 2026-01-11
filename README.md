@@ -23,7 +23,7 @@ Let's highlight them - Kali addresses:
 arp -a
 ```
 ### Its ARP-cache before the attack:
-![meta2_before](https://)
+![meta2_before](https://raw.githubusercontent.com/Zauzanov/arpo/refs/heads/main/01.%20meta2_before.png)
 
 The Attacker and the Victim share the same network and connect to the internet using the same Gateway(192.168.204.2): 
 ```bash
@@ -81,5 +81,5 @@ Beginning the ARP poison. [CTRL+C to stop]
 arp -a  
 ```
 Meta2 machine after the attack:<br>
-![meta2_after](https://) <br>
+![meta2_after](https://raw.githubusercontent.com/Zauzanov/arpo/refs/heads/main/02.%20meta2_after.png) <br>
 We see the IP and MAC addresses from our Kali-machine instead of the original ones! Success!  
