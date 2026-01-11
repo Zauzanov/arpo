@@ -5,11 +5,27 @@
 	<p align="center">Use only on hosts/networks you own or have permission to test!</p>
 </p>
 
-## 1. Check the ARP-cache on the victim machine:
+## 0. Check our MAC and IP addresses on our Kali machine:
+```bash
+ifconfig eth0
+eth0: 	flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+    	inet 192.168.204.139  netmask 255.255.255.0  broadcast 192.168.204.255 			# Kali IP-address!
+        inet6 fe80::b6f5:2d19:3b92:87e7  prefixlen 64  scopeid 0x20<link> 				 
+        ether 00:0c:29:47:74:ba  txqueuelen 1000  (Ethernet) 							# Kali MAC-address!
+
+```
+Let's highlight them - Kali addresses: 
+- IP: **192.168.204.139** 
+- MAC: **00:0c:29:47:74:ba**
+
+## 1. Check the ARP-cache on the victim machine(Metasploitable2 - an intentionally vulnerable VM):
 ```bash
 arp -a
 ```
-OUTPUT:
+### Its ARP-cache before the attack:
+![meta2_before](https://)
+
+### On MacOS it can look like this: 
 ```bash
 kali.attlocal.net (192.168.1.203) at a4:5e:60:ee:17:5d on en0 ifscope 				# Our kali machine
 dsldevice.attlocal.net (192.168.1.254) at 20:e5:64:c0:76:d0 on en0 ifscope 			# Attacker and target share the same network and connect to the internet using the same gateway(192.168.1.254) with this MAC-address: 20:e5:64:c0:76:d0
@@ -20,8 +36,7 @@ These values are going to be useful, as we will be able to see ARP-cache during 
 Knowing gateway's and target's adresses, we can proceed. 
 
 ## 0. Here we see that the attacker and the victim share the same gateway:
-### Metasploitable2 machine before:
-![meta2_before](https://)
+
 ### Kali machine before: 
 ![kali_before](https://raw.githubusercontent.com/Zauzanov/)
 
