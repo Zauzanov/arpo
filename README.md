@@ -76,7 +76,7 @@ Beginning the ARP poison. [CTRL+C to stop]
 ......................................................................................................................................................................................................................................................................................................................................................................................................
 ```
 
-## 4. While the script is capturing 100 packets, let's output content of the ARP-table on the Victim machine, verifying the attack on Meta2 machine:
+## 5. While the script is capturing 100 packets, let's output content of the ARP-table on the Victim machine, verifying the attack on Meta2 machine:
 ```bash
 arp -a  
 ```
