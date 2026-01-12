@@ -5,6 +5,9 @@
 	<p align="center">Use only on hosts/networks you own or have permission to test!</p>
 </p>
 
+arpo combines ARP spoofing with packet capture using Python’s multiprocessing library to handle two tasks at once: 
+1. it keeps the target "poisoned";
+2. while simultaneously recording its traffic.
 ## 1. Check our MAC and IP addresses on our Kali machine:
 ```bash
 ifconfig eth0
