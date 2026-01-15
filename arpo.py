@@ -1,20 +1,21 @@
-from multiprocessing import Process
+from multiprocessing import Process                                                         # Creates separate memory spaces — for poisoning and capturing.  
 from scapy.all import (ARP, Ether, conf, get_if_hwaddr,
-                       send, sniff, sndrcv, srp, wrpcap)
+                       send, sniff, sndrcv, srp, wrpcap) 
 import os
 import sys
 import time 
 
+# Discovers MACs based on IPs
 def get_mac(targetip):
-    packet = Ether(dst='ff:ff:ff:ff:ff:ff')/ARP(op="who-has", pdst=targetip)
-    resp, _ = srp(packet, timeout=2, retry=10, verbose=False)
-    for _, r in resp:
-        return r[Ether].src
+    packet = Ether(dst='ff:ff:ff:ff:ff:ff')/ARP(op="who-has", pdst=targetip)                # Builds a packet, putting ARP packet inside Ethernet frame.
+    resp, _ = srp(packet, timeout=2, retry=10, verbose=False)                               # We use Send and Receive Packets for L2.
+    for _, r in resp:                                                                       # Returns answered packets only.
+        return r[Ether].src                                                                 # We extract the MAC address of the device that replied. 
     return None
 
 class Arpo:
     def __init__(self, victim, gateway, interface='eth0'):
-        self.victim = victim
+        self.victim = victim                                                                # We initialize the variables: interface, victim and so on. 
         self.victimmac = get_mac(victim)
         self.gateway = gateway
         self.gatewaymac = get_mac(gateway)

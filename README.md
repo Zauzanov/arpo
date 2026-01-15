@@ -7,7 +7,9 @@
 
 arpo combines ARP spoofing with packet capture using Python’s multiprocessing library to handle two tasks at once: 
 1. it keeps the target "poisoned";
-2. while simultaneously recording its traffic.
+2. while simultaneously recording its traffic.<br>
+
+It finds the MAC addresses itself, poisons both sides of the conversation, captures the data, saves it to pcap format(for analysis in Wireshark), and cleans everything up afterwards.
 ## 1. Check our MAC and IP addresses on our Kali machine:
 ```bash
 ifconfig eth0
